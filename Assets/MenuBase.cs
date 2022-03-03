@@ -3,6 +3,7 @@ using UnityEngine;
 public class MenuBase : MonoBehaviour
 {
     public GameObject initialButton;
+    [HideInInspector] public GameObject previouslySelectedButton;
 
     void Awake()
     {

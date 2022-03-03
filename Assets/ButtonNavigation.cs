@@ -28,10 +28,10 @@ public class ButtonNavigation : MonoBehaviour
         if (!usingCursor && (mouseMoved || mousePressed))
         {
             usingCursor = true;
-            Cursor.visible = true;       
+            Cursor.visible = true;   
         }
 
-        // Disable cursor on other input.
+        // Disable cursor on keyboard or gamepad input.
         bool mouseButtons = Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1);
         bool keyboardInput = Input.anyKeyDown && !Input.GetButtonDown("Cancel") && !mouseButtons;
         if (usingCursor && keyboardInput && !mouseOnly)
@@ -43,10 +43,15 @@ public class ButtonNavigation : MonoBehaviour
         // Select a button if one is not already selected.
         if (!usingCursor && !stack.Empty() && !eventSystem.currentSelectedGameObject)
         {
-            // If on a menu, select the initial button.
             MenuBase menuBase = stack.Peek().GetComponent<MenuBase>();
-            if (menuBase != null)
+            if (menuBase.previouslySelectedButton != null)
             {
+                // Select the previously selected button.
+                eventSystem.SetSelectedGameObject(menuBase.previouslySelectedButton);
+            }
+            else
+            {
+                // Select the initial button.
                 eventSystem.SetSelectedGameObject(menuBase.initialButton);
             }
         }
@@ -64,7 +69,7 @@ public class ButtonNavigation : MonoBehaviour
             GraphicRaycaster raycaster = currentCanvas.GetComponent<GraphicRaycaster>();
             raycaster.Raycast(pointerEventData, results);
 
-            // Select a button if the pointer is over it.
+            // Select button if the pointer is over it.
             bool buttonTouched = false;
             foreach (RaycastResult result in results)
             {
@@ -75,10 +80,20 @@ public class ButtonNavigation : MonoBehaviour
                 }
             }
 
+            // Deselect button if the pointer is not over it.
             if (!buttonTouched)
             {
                 eventSystem.SetSelectedGameObject(null);
             }
+        }
+
+        // Regardless of cursor, keep track of the previously selected button. This allows the
+        // keyboard button selection to choose the correct button when, for example, the menu is
+        // popped and the previously menu is activated.
+        if (!stack.Empty() && eventSystem.currentSelectedGameObject != null)
+        {
+            stack.Peek().GetComponent<MenuBase>()
+                .previouslySelectedButton = eventSystem.currentSelectedGameObject;
         }
     }
 }
