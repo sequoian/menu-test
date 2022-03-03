@@ -1,10 +1,22 @@
-﻿public class StateMachine
+﻿public delegate void StateCallback();
+
+public abstract class StateBase
 {
-    public delegate void StateCallback();
+    public StateCallback Begin = () => {};
+    public StateCallback End = () => {};
+}
 
-    StateBase currentState;
+public class StateMachine<T> where T : StateBase
+{
+    T currentState;
 
-    public void SetState(StateBase state)
+    public StateMachine(T initialState)
+    {
+        currentState = initialState;
+        currentState.Begin();
+    }
+
+    public void SetState(T state)
     {
         if (currentState.End != null) 
         {
@@ -19,14 +31,9 @@
         }
     }
 
-    public StateBase GetState()
+    public T GetState()
     {
         return currentState;
     }
-
-    public abstract class StateBase
-    {
-        public StateCallback Begin;
-        public StateCallback End;
-    }
 }
+
