@@ -1,9 +1,11 @@
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class ButtonSounds : MonoBehaviour, IMoveHandler, IPointerEnterHandler
+[RequireComponent(typeof(Button))]
+public class ButtonMoveSound : MonoBehaviour, IMoveHandler, IPointerEnterHandler
 {
-    public string audioSourceTag;
+    [SerializeField] string audioSourceTag;
 
     AudioSource audioSource;
 
@@ -15,7 +17,7 @@ public class ButtonSounds : MonoBehaviour, IMoveHandler, IPointerEnterHandler
 
     public void OnMove(AxisEventData eventData)
     {
-        // Play sound only if the selection moved.
+        // Play sound only if the selection moved using keyboard or gamepad.
         if (EventSystem.current.currentSelectedGameObject != gameObject)
         {
             PlaySound();
@@ -24,7 +26,11 @@ public class ButtonSounds : MonoBehaviour, IMoveHandler, IPointerEnterHandler
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        PlaySound();
+        // Play sound if the moused over.
+        if (GetComponent<Button>().interactable)
+        {
+            PlaySound();
+        }
     }
 
     void PlaySound()
