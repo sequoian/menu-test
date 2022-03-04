@@ -1,17 +1,15 @@
 using UnityEngine;
 
-[RequireComponent(typeof(MenuStack))]
-public class MenuController : MonoBehaviour
+public class MenuController : MenuControllerBase
 {
+    [Header("Menus")]
     [SerializeField] GameObject mainMenu;
     [SerializeField] GameObject optionsMenu;
 
-    MenuStack stack;
-
-    void Start()
+    protected override void Start()
     {
-        stack = GetComponent<MenuStack>();
-
+        base.Start();
+        
         stack.Push(mainMenu);
     }
 

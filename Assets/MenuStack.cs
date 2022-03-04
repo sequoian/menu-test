@@ -2,12 +2,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class MenuStack : MonoBehaviour
+public class MenuStack
 {
     Stack<GameObject> stack;
     EventSystem eventSystem;
 
-    void Start()
+    public MenuStack()
     {
         stack = new Stack<GameObject>();
         eventSystem = EventSystem.current;

@@ -3,7 +3,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-[RequireComponent(typeof(MenuStack))]
 public class ButtonNavigation : MonoBehaviour
 {
     [SerializeField] bool useCursorInitially;
@@ -17,12 +16,13 @@ public class ButtonNavigation : MonoBehaviour
 
     void Start()
     {
-        stack = GetComponent<MenuStack>();
+        stack = GetComponent<MenuControllerBase>().GetMenuStack();
         eventSystem = EventSystem.current;
 
         mouseState = new NavState(MouseUpdate);
         buttonState = new NavState(ButtonUpdate);
-        stateMachine = new StateMachine<NavState>(useCursorInitially ? mouseState : buttonState);
+        stateMachine = new StateMachine<NavState>(
+            useCursorInitially || mouseOnly ? mouseState : buttonState);
     }
 
     void Update()

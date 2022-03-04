@@ -508,10 +508,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1021747814}
     m_Modifications:
-    - target: {fileID: 4375342770648586740, guid: d02e97f0ea074ab41bf1555cfba446c1, type: 3}
-      propertyPath: m_Interactable
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5583307377499929497, guid: d02e97f0ea074ab41bf1555cfba446c1, type: 3}
       propertyPath: m_Name
       value: Credits Button
@@ -847,7 +843,7 @@ PrefabInstance:
     - target: {fileID: 4375342770648586740, guid: d02e97f0ea074ab41bf1555cfba446c1, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1895052879}
+      objectReference: {fileID: 1895052881}
     - target: {fileID: 4375342770648586740, guid: d02e97f0ea074ab41bf1555cfba446c1, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
@@ -858,7 +854,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4375342770648586740, guid: d02e97f0ea074ab41bf1555cfba446c1, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: MenuCancel, Assembly-CSharp
+      value: MenuControllerBase, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 4375342770648586740, guid: d02e97f0ea074ab41bf1555cfba446c1, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -973,8 +969,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1895052878}
   - component: {fileID: 1895052883}
-  - component: {fileID: 1895052880}
-  - component: {fileID: 1895052879}
   - component: {fileID: 1895052881}
   - component: {fileID: 1895052882}
   m_Layer: 0
@@ -998,31 +992,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1895052879
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1895052877}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 80564c8149c45aa41a2fb81212560475, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cancelString: Cancel
---- !u!114 &1895052880
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1895052877}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e6d713c1dd13e04ebf7f91a7c6fa29c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1895052881
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1032,9 +1001,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1895052877}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4da0dff2c2e46e84abdc99c7285edc71, type: 3}
+  m_Script: {fileID: 11500000, guid: b474f2940ad5edb44bf08da5d1fe53c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cancelString: Cancel
   mainMenu: {fileID: 1021747810}
   optionsMenu: {fileID: 2055810545}
 --- !u!114 &1895052882
@@ -1063,7 +1033,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: cbe5d46915563764cb58d439d0399b03, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.5
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 0
   Mute: 0

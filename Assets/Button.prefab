@@ -214,6 +214,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioSourceTag: MenuController
-  movePitch: 1
-  selectPitch: 1.2
-  cancelPitch: 0.8
