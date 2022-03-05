@@ -14,11 +14,11 @@ public class MenuControllerBase : MonoBehaviour
 
     protected virtual void Update()
     {
-        if (Input.GetButtonDown(cancelString) && stack.Count() > 1)
-        {
-            // Pop the top menu if it's not the last menu on the stack.
-            Back();
-        }
+        // if (Input.GetButtonDown(cancelString) && stack.Count() > 1)
+        // {
+        //     // Pop the top menu if it's not the last menu on the stack.
+        //     Back();
+        // }
     }
 
     public MenuStack GetMenuStack()

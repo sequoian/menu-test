@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using UnityEngine.InputSystem;
 
 public class ButtonNavigation : MonoBehaviour
 {
@@ -40,6 +41,26 @@ public class ButtonNavigation : MonoBehaviour
         }
     }
 
+    void OnControlsChanged(PlayerInput input)
+    {
+        Debug.Log(input.currentControlScheme);
+
+        // Prevent this from triggering too early.
+        if (stateMachine == null) return;
+
+        // Change the state.
+        if (input.currentControlScheme == "Mouse")
+        {
+            stateMachine.SetState(mouseState);
+            Cursor.visible = true;
+        }
+        else
+        {
+            stateMachine.SetState(buttonState);
+            Cursor.visible = false;
+        }
+    }
+
     void MouseUpdate()
     {
         // Select buttons that the cursor is hovering over.
@@ -47,7 +68,7 @@ public class ButtonNavigation : MonoBehaviour
         {
             // Get the pointer data.
             PointerEventData pointerEventData = new PointerEventData(EventSystem.current);
-            pointerEventData.position = Input.mousePosition;
+            pointerEventData.position = Mouse.current.position.ReadValue();
 
             // Perform a raycast on the current canvas using the pointer data.
             GameObject currentCanvas = stack.Peek();
@@ -72,15 +93,6 @@ public class ButtonNavigation : MonoBehaviour
                 eventSystem.SetSelectedGameObject(null);
             }
         }
-
-        // Switch to button state on keyboard or gamepad input.
-        bool mouseButtons = Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1);
-        bool keyboardInput = Input.anyKeyDown && !Input.GetButtonDown("Cancel") && !mouseButtons;
-        if (keyboardInput && !mouseOnly)
-        {
-            Cursor.visible = false;
-            stateMachine.SetState(buttonState);
-        }
     }
 
     void ButtonUpdate()
@@ -99,15 +111,6 @@ public class ButtonNavigation : MonoBehaviour
                 // Select the initial button.
                 eventSystem.SetSelectedGameObject(menuBase.initialButton);
             }
-        }
-
-        // Switch to mouse state on mouse input.
-        bool mouseMoved = Input.GetAxis("Mouse X") != 0 || Input.GetAxis("Mouse Y") != 0;
-        bool mousePressed = Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1);
-        if (mouseMoved || mousePressed)
-        {
-            Cursor.visible = true;
-            stateMachine.SetState(mouseState);
         }
     }
 
