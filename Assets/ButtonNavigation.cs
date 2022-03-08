@@ -41,10 +41,8 @@ public class ButtonNavigation : MonoBehaviour
         }
     }
 
-    void OnControlsChanged(PlayerInput input)
+    public void InputChanged(PlayerInput input)
     {
-        Debug.Log(input.currentControlScheme);
-
         // Prevent this from triggering too early.
         if (stateMachine == null) return;
 
