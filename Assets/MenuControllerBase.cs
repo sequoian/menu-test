@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class MenuControllerBase : MonoBehaviour
 {
@@ -10,11 +11,18 @@ public class MenuControllerBase : MonoBehaviour
     protected virtual void Start()
     {
         stack = new MenuStack();
+
+        Controls.SubscribeToAction(cancelString, OnCancel);
     }
 
     public MenuStack GetMenuStack()
     {
         return stack;
+    }
+
+    void OnCancel(InputAction.CallbackContext context)
+    {
+        Back();
     }
 
     public void Back()

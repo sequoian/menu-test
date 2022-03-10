@@ -11,7 +11,7 @@ public class Controls : MonoBehaviour
     {
         if (input != null)
         {
-            Debug.LogError("Cannot instantiate more than one instance of PlayerInput");
+            Debug.LogError("Cannot instantiate more than one instance of PlayerInput.");
             return;
         }
 

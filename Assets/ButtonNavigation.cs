@@ -25,7 +25,7 @@ public class ButtonNavigation : MonoBehaviour
         stateMachine = new StateMachine<NavState>(
             useCursorInitially || mouseOnly ? mouseState : buttonState);
 
-        Controls.input.onControlsChanged += InputChanged;
+        Controls.input.onControlsChanged += OnInputChanged;
     }
 
     void Update()
@@ -43,7 +43,7 @@ public class ButtonNavigation : MonoBehaviour
         }
     }
 
-    public void InputChanged(PlayerInput input)
+    void OnInputChanged(PlayerInput input)
     {
         // Prevent this from triggering too early.
         if (stateMachine == null) return;
