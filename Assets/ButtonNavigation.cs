@@ -24,6 +24,8 @@ public class ButtonNavigation : MonoBehaviour
         buttonState = new NavState(ButtonUpdate);
         stateMachine = new StateMachine<NavState>(
             useCursorInitially || mouseOnly ? mouseState : buttonState);
+
+        Controls.input.onControlsChanged += InputChanged;
     }
 
     void Update()

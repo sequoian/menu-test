@@ -2,6 +2,34 @@
     "name": "InputActionsUI",
     "maps": [
         {
+            "name": "Player",
+            "id": "ed0fb6d3-8265-42ed-8324-e81e43dbeb93",
+            "actions": [
+                {
+                    "name": "Fire",
+                    "type": "Button",
+                    "id": "a3a83ab9-6a4e-4f22-8279-25d39d8ba91e",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "5452dbd8-6e1a-4541-aca8-aba1e0a0f516",
+                    "path": "<Keyboard>/f",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard;Mouse",
+                    "action": "Fire",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
             "name": "UI",
             "id": "272f6d14-89ba-496f-b7ff-215263d3219f",
             "actions": [

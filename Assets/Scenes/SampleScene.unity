@@ -324,7 +324,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Actions: {fileID: -944628639613478452, guid: 40f1cc0b98630384fb0f400ec97dbbc1, type: 3}
-  m_NotificationBehavior: 2
+  m_NotificationBehavior: 3
   m_UIInputModule: {fileID: 288618892}
   m_DeviceLostEvent:
     m_PersistentCalls:
@@ -403,7 +403,7 @@ MonoBehaviour:
     m_ActionName: UI/TrackedDeviceOrientation
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Mouse
-  m_DefaultActionMap: UI
+  m_DefaultActionMap: 272f6d14-89ba-496f-b7ff-215263d3219f
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
 --- !u!114 &288618896
