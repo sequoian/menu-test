@@ -43,4 +43,9 @@ public class Controls : MonoBehaviour
     {
         return input.actions[actionName].WasReleasedThisFrame();
     }
+
+    public static void ChangeActionMap(string mapName)
+    {
+        input.SwitchCurrentActionMap(mapName);
+    }
 }
