@@ -229,6 +229,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 6163592126388092280, guid: d02e97f0ea074ab41bf1555cfba446c1, type: 3}
   m_PrefabInstance: {fileID: 4923492}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &266638742 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 266638742, guid: b52d0f2e911ce6d45b308bc145d9abdf, type: 3}
+  m_PrefabInstance: {fileID: 164416477175949998}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &288618891
 GameObject:
   m_ObjectHideFlags: 0
@@ -1133,7 +1144,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   saveSettings: 0
-  audioMixer: {fileID: 0}
+  audioMixer: {fileID: 24100000, guid: 2eeb038e325bc3d43a9b4e47e8fc6eb5, type: 2}
 --- !u!114 &1895052881
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1172,10 +1183,10 @@ AudioSource:
   m_GameObject: {fileID: 1895052877}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 2eeb038e325bc3d43a9b4e47e8fc6eb5, type: 2}
   m_audioClip: {fileID: 8300000, guid: cbe5d46915563764cb58d439d0399b03, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.3
+  m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -1426,6 +1437,38 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2055810549}
     m_Modifications:
+    - target: {fileID: 266638742, guid: b52d0f2e911ce6d45b308bc145d9abdf, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 266638742, guid: b52d0f2e911ce6d45b308bc145d9abdf, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 266638742, guid: b52d0f2e911ce6d45b308bc145d9abdf, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1895052881}
+    - target: {fileID: 266638742, guid: b52d0f2e911ce6d45b308bc145d9abdf, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 266638742, guid: b52d0f2e911ce6d45b308bc145d9abdf, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ChangeMasterVolume
+      objectReference: {fileID: 0}
+    - target: {fileID: 266638742, guid: b52d0f2e911ce6d45b308bc145d9abdf, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: MenuController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 266638742, guid: b52d0f2e911ce6d45b308bc145d9abdf, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 266638742}
+    - target: {fileID: 266638742, guid: b52d0f2e911ce6d45b308bc145d9abdf, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.UI.Slider, UnityEngine.UI
+      objectReference: {fileID: 0}
     - target: {fileID: 1344333783, guid: b52d0f2e911ce6d45b308bc145d9abdf, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0

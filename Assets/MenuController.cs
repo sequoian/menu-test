@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class MenuController : MenuControllerBase
 {
@@ -31,5 +32,10 @@ public class MenuController : MenuControllerBase
     public void OptionsMenu()
     {
         stack.Push(optionsMenu);
+    }
+
+    public void ChangeMasterVolume(Slider slider)
+    {
+        GetComponent<SettingsController>().SetVolume("MasterVolume", slider.value);
     }
 }

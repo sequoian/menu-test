@@ -15,6 +15,10 @@ public class SettingsController : MonoBehaviour
 
     public void SetVolume(string mixerGroup, float volume)
     {
+        // Set the volume at an extremely low value; otherwise, it wraps around.
+        if (volume <= 0) volume = 0.0001f;
+
+        // Converts volume to a linear value based on the audio mixer's dB logic.
         audioMixer.SetFloat(mixerGroup, Mathf.Log10(volume) * 20);
     }
 
