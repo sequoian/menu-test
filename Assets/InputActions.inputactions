@@ -525,7 +525,7 @@
                     "path": "<Mouse>/leftButton",
                     "interactions": "",
                     "processors": "",
-                    "groups": ";Keyboard",
+                    "groups": "Mouse",
                     "action": "Click",
                     "isComposite": false,
                     "isPartOfComposite": false
