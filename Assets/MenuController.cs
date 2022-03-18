@@ -52,4 +52,19 @@ public class MenuController : MenuControllerBase
     {
         settingsController.SetFullscreen(toggle.isOn);
     }
+
+    public void Res1920()
+    {
+        settingsController.SetResolution(1920, 1080);
+    }
+
+    public void Res1280()
+    {
+        settingsController.SetResolution(1280, 720);
+    }
+    
+    public void Res640()
+    {
+        settingsController.SetResolution(640, 360);
+    }
 }

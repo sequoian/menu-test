@@ -40,6 +40,8 @@ public class SettingsController : MonoBehaviour
 
     public void SetResolution(int width, int height)
     {
+        Debug.Log(width.ToString() + " x " + height.ToString());
+
         Screen.SetResolution(width, height, GetFullscreen());
     }
 
