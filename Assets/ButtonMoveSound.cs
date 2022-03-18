@@ -2,7 +2,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-[RequireComponent(typeof(Button))]
 public class ButtonMoveSound : MonoBehaviour, IMoveHandler, IPointerEnterHandler
 {
     [SerializeField] string audioSourceTag;
@@ -27,7 +26,7 @@ public class ButtonMoveSound : MonoBehaviour, IMoveHandler, IPointerEnterHandler
     public void OnPointerEnter(PointerEventData eventData)
     {
         // Play sound if the moused over.
-        if (GetComponent<Button>().interactable)
+        if (GetComponent<Selectable>().interactable)
         {
             PlaySound();
         }

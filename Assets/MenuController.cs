@@ -8,14 +8,23 @@ public class MenuController : MenuControllerBase
     [SerializeField] GameObject mainMenu;
     [SerializeField] GameObject optionsMenu;
 
+    SettingsController settingsController;
+
     protected override void Start()
     {
         base.Start();
+
+        settingsController = GetComponent<SettingsController>();
         
         Controls.SubscribeToAction("Pause", EndPlay);
 
         stack.Push(mainMenu);
-    }  
+    }
+
+    public void Quit()
+    {
+        Application.Quit();
+    }
 
     public void StartPlay()
     {
@@ -36,6 +45,11 @@ public class MenuController : MenuControllerBase
 
     public void ChangeMasterVolume(Slider slider)
     {
-        GetComponent<SettingsController>().SetVolume("MasterVolume", slider.value);
+        settingsController.SetVolume("MasterVolume", slider.value);
+    }
+
+    public void ChangeFullscreen(Toggle toggle)
+    {
+        settingsController.SetFullscreen(toggle.isOn);
     }
 }
